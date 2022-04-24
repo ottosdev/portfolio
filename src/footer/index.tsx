@@ -1,25 +1,28 @@
+import { useGithub } from "../components/hooks/useGithub";
 import "./styles.css"
 
 export const Footer = () => {
+  const {user} = useGithub()
+
   return (
     <footer id="footer">
-      <a href="">Otto de Souza</a>
+      <a target="_blank" href={user.html_url}>{user.name}</a>
 
       <ul className="links">
         <li>
-          <a href="#">Home</a>
+          <a href="#">Inicio</a>
         </li>
         <li>
-          <a href="#">About</a>
+          <a href="#about">Sobre</a>
         </li>
         <li>
-          <a href="#">Experience</a>
+          <a href="#experience">Experiencia</a>
         </li>
         <li>
-          <a href="#">Projects</a>
+          <a href="#projects">Projetos</a>
         </li>
         <li>
-          <a href="#">Contact</a>
+          <a href="#contact">Contato</a>
         </li>
       </ul>
     </footer>

@@ -3,7 +3,6 @@ import "./styles.css";
 import { MdArrowRight } from "react-icons/md";
 import { Cta } from "./Cta";
 import { useGithub } from "../hooks/useGithub";
-
 const Header = () => {
   const { user } = useGithub();
   return (

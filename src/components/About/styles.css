@@ -55,10 +55,14 @@
 @media screen and (max-width: 600px) {
   .container.about__container {
     width: var(--container-width-sm);
-    padding: 0 1.5rem 4rem;
+    padding: 0 1.5rem;
   }
 
   .description {
     width: var(--container-width-sm);
+  }
+  
+  .location {
+    grid-template-columns: 1fr;
   }
 }
