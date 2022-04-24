@@ -6,13 +6,15 @@ import {
   useState,
 } from "react";
 import { api } from "../../service/api";
+import { retornar } from "../../utils/retonar";
 
 interface ProjectsProps {
   id: number;
   name: string;
   description: string;
   html_url: string;
-  language:string;
+  language: string;
+  languageFormatted: string | undefined;
 }
 
 interface UserProps {
@@ -51,8 +53,20 @@ export function GitHubContextProvider({
 
   useEffect(() => {
     const laodData = () => {
-      api.get("/ottosdev/repos").then((response) => {
-        setProjects(response.data);
+      api.get<ProjectsProps[]>("/ottosdev/repos").then((response) => {
+        const projectsFormatted = response.data.map(
+          (project: ProjectsProps) => ({
+            ...project,
+            languageFormatted: retornar(project.name.split("-"))
+              ? retornar(project.name.split("-"))
+              : "Sem tipo",
+            description: project.description
+              ? project.description
+              : "Sem descricao",
+          })
+        );
+
+        setProjects(projectsFormatted);
       });
     };
 

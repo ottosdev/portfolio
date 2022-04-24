@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useGithub } from "../hooks/useGithub";
 import "./styles.css";
 
@@ -22,7 +23,7 @@ const Projects = () => {
               >
                 Github
               </a>
-              <h5>{item.language}</h5>
+              <h5>{item.languageFormatted}</h5>
             </div>
           </article>
         ))}
