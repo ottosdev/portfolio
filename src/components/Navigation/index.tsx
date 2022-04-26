@@ -2,16 +2,13 @@ import { useState } from "react";
 import { AiOutlineHome, AiOutlineUser, AiOutlineProject } from "react-icons/ai";
 import { BiBook, BiMessageSquareDetail } from "react-icons/bi";
 import { RiServiceLine } from "react-icons/ri";
+import { useLink } from "../hooks/useLink";
 import { Link } from "./Link";
 
 import "./styles.css";
 
 export const Navigation = () => {
-  const [isActive, setIsActive] = useState("#");
-
-  function handleIsActive(hrfe: string) {
-    setIsActive(hrfe);
-  }
+  const { isActive, handleIsActive } = useLink();
 
   return (
     <nav>
@@ -49,7 +46,6 @@ export const Navigation = () => {
         isActive={isActive}
         icon={BiMessageSquareDetail}
       />
-
     </nav>
   );
 };

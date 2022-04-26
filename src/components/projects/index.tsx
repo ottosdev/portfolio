@@ -5,7 +5,7 @@ import "./styles.css";
 const Projects = () => {
   const { projects } = useGithub();
 
-  return (
+   return (
     <section id="projects">
       <h5>Meus Projetos</h5>
       <h2>Github</h2>
